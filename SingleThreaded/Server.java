@@ -22,6 +22,9 @@ public class Server {
                 BufferedReader fromClient = new BufferedReader(
                         new InputStreamReader(acceptedConnection.getInputStream()));
                 toClient.println("Hello from the server");
+                toClient.close();
+                fromClient.close();
+                acceptedConnection.close();
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
